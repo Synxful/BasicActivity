@@ -8,9 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,32 +35,41 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        List valueList = new ArrayList<String>();
+        final List valueList = new ArrayList<String>();
+        valueList.add("1. Element");
+        valueList.add("2. Element");
+        valueList.add("3. Element");
+        valueList.add("4. Element");
+        valueList.add("5. Element");
+        valueList.add("6. Element");
+        valueList.add("7. Element");
+        valueList.add("8. Element");
+        valueList.add("9. Element");
+        valueList.add("0. Element");
         valueList.add("1. Element");
         valueList.add("2. Element");
         valueList.add("1. Element");
-        valueList.add("2. Element");
-        valueList.add("1. Element");
-        valueList.add("2. Element");
-        valueList.add("1. Element");
-        valueList.add("2. Element");
-        valueList.add("1. Element");
-        valueList.add("2. Element");
-        valueList.add("1. Element");
-        valueList.add("2. Element");
-        valueList.add("1. Element");
-        valueList.add("2. Element");
-        valueList.add("1. Element");
-        valueList.add("2. Element");
+        valueList.add("56. Element");
+        valueList.add("7l. Element");
+        valueList.add("21. Element");
 
         // TEST UND MAL TESTEN OB ES AUCH RUCKWÄRTS GEHT! ALSO MIT LÖSCHEN LOLOLOLOLL
 
 
 
         ListAdapter adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, valueList);
-        ListView liste = (ListView) findViewById(R.id.liste);
+        final ListView liste = (ListView) findViewById(R.id.liste);
         liste.setAdapter(adapter);
 
+        liste.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String geklickt = valueList.get(i).toString();
+
+                Toast aussage = Toast.makeText(getApplicationContext(),"Geklickt wurde: " + geklickt, Toast.LENGTH_SHORT);
+                aussage.show();
+            }
+        });
 
 
     }
