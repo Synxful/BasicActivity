@@ -51,22 +51,7 @@ public class MainActivity extends AppCompatActivity {
         valueList.add("1. Element");
         valueList.add("2. Element");
 
-
-
-        //TEST ELEMENTE YOYOYOYOYYOYOYOYOYOYOYOYOYOYOYOOYOYOYOYOOYOY
-        valueList.add("1. Element");
-        valueList.add("2. Element");
-        valueList.add("1. Element");
-        valueList.add("2. Element");
-        valueList.add("1. Element");
-        valueList.add("2. Element");
-        valueList.add("1. Element");
-        valueList.add("2. Element");
-        valueList.add("1. Element");
-        valueList.add("2. Element");
-        valueList.add("1. Element");
-        valueList.add("2. Element");
-
+        // TEST UND MAL TESTEN OB ES AUCH RUCKWÄRTS GEHT! ALSO MIT LÖSCHEN LOLOLOLOLL
 
 
 
