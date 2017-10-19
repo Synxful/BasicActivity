@@ -1,8 +1,8 @@
 package com.example.student.basicactivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -14,6 +14,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,13 +31,24 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+
+                Intent i = new Intent(getApplicationContext(),DetailSeite.class);
+                startActivity(i);
             }
         });
 
-        final List valueList = new ArrayList<String>();
-        valueList.add("1. Element");
+
+
+
+        ReisetippDatenquelle tipp = new ReisetippDatenquelle();
+        final ArrayList<ModellTipp> daten = tipp.getDaten();
+
+
+        /*final List valueList = new ArrayList<String>();*/
+
+        /*valueList.add("1. Element");
         valueList.add("2. Element");
         valueList.add("3. Element");
         valueList.add("4. Element");
@@ -51,23 +63,29 @@ public class MainActivity extends AppCompatActivity {
         valueList.add("1. Element");
         valueList.add("56. Element");
         valueList.add("7l. Element");
-        valueList.add("21. Element");
-
-        // TEST UND MAL TESTEN OB ES AUCH RUCKWÄRTS GEHT! ALSO MIT LÖSCHEN LOLOLOLOLL
+        valueList.add("21. Element");*/
 
 
 
-        ListAdapter adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, valueList);
+        ListAdapter adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, daten);
         final ListView liste = (ListView) findViewById(R.id.liste);
         liste.setAdapter(adapter);
 
         liste.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String geklickt = valueList.get(i).toString();
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                String geklickt = daten.get(position).toString();
+                System.out.println("String geklickt : " + geklickt);
+
 
                 Toast aussage = Toast.makeText(getApplicationContext(),"Geklickt wurde: " + geklickt, Toast.LENGTH_SHORT);
                 aussage.show();
+
+                Intent dasExtra = new Intent(getApplicationContext(),DetailSeite.class);
+                dasExtra.putExtra("id", String.valueOf(position));
+                System.out.println("String.valueOf(position) : " + String.valueOf(position));
+                startActivity(dasExtra);
+
             }
         });
 
