@@ -50,6 +50,26 @@ public class MainActivity extends AppCompatActivity {
         valueList.add("2. Element");
         valueList.add("1. Element");
         valueList.add("2. Element");
+
+
+
+        //TEST ELEMENTE YOYOYOYOYYOYOYOYOYOYOYOYOYOYOYOOYOYOYOYOOYOY
+        valueList.add("1. Element");
+        valueList.add("2. Element");
+        valueList.add("1. Element");
+        valueList.add("2. Element");
+        valueList.add("1. Element");
+        valueList.add("2. Element");
+        valueList.add("1. Element");
+        valueList.add("2. Element");
+        valueList.add("1. Element");
+        valueList.add("2. Element");
+        valueList.add("1. Element");
+        valueList.add("2. Element");
+
+
+
+
         ListAdapter adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, valueList);
         ListView liste = (ListView) findViewById(R.id.liste);
         liste.setAdapter(adapter);
